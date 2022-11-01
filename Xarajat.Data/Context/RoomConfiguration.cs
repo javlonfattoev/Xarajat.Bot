@@ -14,7 +14,7 @@ public class RoomConfiguration : IEntityTypeConfiguration<Room>
         .HasColumnType("nvarchar(50)");
 
         builder.Property(room => room.Key)
-            .HasColumnType("nvarchar(20)")
+            .HasColumnType("nvarchar(32)")
         .IsRequired();
 
         builder.Property(room => room.Status)

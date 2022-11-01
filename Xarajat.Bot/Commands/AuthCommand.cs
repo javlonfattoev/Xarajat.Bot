@@ -18,7 +18,7 @@ public class AuthCommand : CommandHandler
     [Method]
     public async Task Auth(MessageContext context)
     {
-        var user = await Context.Users.FirstOrDefaultAsync(u => u.ChatId == context.ChatId);
+        var user = await Context.Users.Include(u => u.Room).FirstOrDefaultAsync(u => u.ChatId == context.ChatId);
         if (user is null)
         {
             user = new User
@@ -33,6 +33,7 @@ public class AuthCommand : CommandHandler
             await Context.SaveChangesAsync();
         }
 
+        context.Step = user.Step;
         context.User = user;
     }
 }

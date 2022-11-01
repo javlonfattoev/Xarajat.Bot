@@ -5,5 +5,6 @@ public enum EStep
     Default,
     EnterNewRoomName,
     EnterJoinRoomKey,
-    InRoom
+    InRoom,
+    EnterOutlayDetails
 }
