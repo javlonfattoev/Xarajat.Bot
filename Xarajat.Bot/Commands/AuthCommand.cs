@@ -1,4 +1,5 @@
 ﻿using JFA.DependencyInjection;
+using JFA.Telegram;
 using Microsoft.EntityFrameworkCore;
 using Xarajat.Bot.Common;
 using Xarajat.Bot.Services;
@@ -14,6 +15,7 @@ public class AuthCommand : CommandHandler
     {
     }
 
+    [Method]
     public async Task Auth(MessageContext context)
     {
         var user = await Context.Users.FirstOrDefaultAsync(u => u.ChatId == context.ChatId);
